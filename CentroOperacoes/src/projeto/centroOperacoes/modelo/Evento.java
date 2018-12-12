@@ -20,29 +20,33 @@ public class Evento {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_evento")
+	@Column(name = "evento_id")
 	private Integer id;
 	
+	@Column(name = "evento_data")
 	private Date data;
 	
+	@Column(name = "evento_descricao")
 	private String descricao;
 	
+	@Column(name = "evento_status")
 	private int status;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_navio", nullable = false)
+	@JoinColumn(name = "navio_id", nullable = false)
 	private Navio navio;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_usuario")
+	@JoinColumn(name = "usuario_usuario_id")
 	private Usuario usuario;
 	
+	@Column(name = "evento_token")
 	private String token;
 	
-	@Column(name="data_inicio_atendimento")
+	@Column(name="evento_inicio_atendimento")
 	private Date dataInicio;
 	
-	@Column(name="data_termino_atendimento")
+	@Column(name="evento_fim_atendimento")
 	private Date dataTerminoAtendimento;
 
 	@OneToMany(mappedBy = "evento")

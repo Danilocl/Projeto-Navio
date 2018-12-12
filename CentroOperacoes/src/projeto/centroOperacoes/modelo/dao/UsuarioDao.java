@@ -18,8 +18,10 @@ public class UsuarioDao extends DaoGeneric<Usuario>{
 		
 		String hql = "from " + Usuario.class.getName() + " u where u.login = :login and u.senha = :senha";
 		
+		System.out.println(hql);
+		
 		Query query = entityManager.createQuery(hql);
-	
+		
 		query.setParameter("login", login);
 		query.setParameter("senha", senha);
 		

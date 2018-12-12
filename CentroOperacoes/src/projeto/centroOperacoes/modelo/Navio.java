@@ -15,11 +15,13 @@ public class Navio {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_navio")
+	@Column(name = "navio_id")
 	private int id;
 	
+	@Column(name = "navio_nome")
 	private String nome;
 
+	@Column(name = "navio_status")
 	private int status;
 	
 	@OneToMany(mappedBy = "navio")

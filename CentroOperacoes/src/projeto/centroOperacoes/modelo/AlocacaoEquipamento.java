@@ -17,7 +17,7 @@ public class AlocacaoEquipamento {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_alocacaoequipamento")
+	@Column(name = "alocacaoequipamento_id")
 	private int id;
 	
 	@OneToMany(mappedBy = "alocacaoEquipamento")

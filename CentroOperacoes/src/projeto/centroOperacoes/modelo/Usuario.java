@@ -16,19 +16,25 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_usuario")
+	@Column(name = "usuario_id")
 	private int id;
 	
+	@Column(name = "usuario_cpf")
 	private String cpf;
 	
+	@Column(name = "usuario_nome")
 	private String nome;
 	
+	@Column(name = "usuario_sobrenome")
 	private String funcao;
 	
+	@Column(name = "usuario_login")
 	private String login;
 	
+	@Column(name = "usuario_senha")
 	private String senha;
 	
+	@Column(name = "usuario_status")
 	private int status;
 	
 	@OneToMany(mappedBy = "usuario")

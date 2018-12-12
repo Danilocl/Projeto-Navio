@@ -87,8 +87,10 @@ public class UsuarioControle implements Serializable {
 
 	public Usuario isUsuarioReadyToLogin(String login, String pass) {
 		try {
+			
+			
 			login = login.toLowerCase().trim();
-
+			
 			Usuario user = dao.login(login, pass);
 
 			if (user != null) {
