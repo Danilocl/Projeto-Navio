@@ -1,2 +1,0 @@
-package projeto.centroOperacoes.controle;
-
