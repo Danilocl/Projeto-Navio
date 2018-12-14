@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Cadastro de Evento</title>
+	</h:head>
+	<h:body>	
+		
+		<style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+</style>
+ 
+ 
+<h:form>
+
+
+<p:tabMenu>
+    <p:menuitem value="Início" icon="pi pi-star">
+        <f:param name="i" value="0" />
+    </p:menuitem>
+    <p:menuitem value="Cadastro Eventos"  icon="pi pi-user">
+        <f:param name="i" value="1" />
+    </p:menuitem>
+    <p:menuitem value="Listagem Eventos"  icon="pi pi-file">
+        <f:param name="i" value="2" />
+    </p:menuitem>
+    <p:menuitem value="Editar Eventos"  icon="pi pi-file">
+        <f:param name="i" value="3" />
+    </p:menuitem>
+    <p:menuitem value="Deletar Eventos"  icon="pi pi-file">
+        <f:param name="i" value="4" />
+    </p:menuitem>
+</p:tabMenu>
+
+
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel for="descricao" value="Descrição: " />
+        <p:inputMask id="descricao" required="true"/>
+ 
+        <p:outputLabel for="status" value="Status:" />
+        <p:inputMask id="status" placeholder="Ativo/Inativo"  required="true"/>
+ 
+        <p:outputLabel for="dataInicio" value="Data início Atendimento:" />
+        <p:inputMask id="dataInicio"  mask="99/99/9999" required="true"/>
+ 
+        <p:outputLabel for="dataTerminoAtendimento" value="Data Fim Atendimento:" />
+        <p:inputMask id="dataTerminoAtendimento"  mask="99/99/9999" required="true"/>
+ 
+        <p:outputLabel for="navio" value="Código Navio:" />
+        <p:inputMask id="navio" mask="999-99-9999" required="true"/>
+ 
+       			   
+ 
+        <p:commandButton value="Enviar" update="display"  oncomplete="PF('dlg').show()"/>
+        <p:commandButton value="Limpar" type="reset" />
+        
+    </h:panelGrid>
+ 
+    <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Values" showEffect="fade"> 
+        <p:panelGrid id="display" columns="1" columnClasses="Cadastro:">
+           <h2>Realizado Com Sucesso! </h2>
+        </p:panelGrid>
+    </p:dialog>
+</h:form>
+		
+		
+		
+		
+		
+		
+		
+	
+	</h:body>
+</html>
