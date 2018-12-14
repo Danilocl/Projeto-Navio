@@ -4,8 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 
 import projeto.centroOperacoes.controle.AlocacaoEquipamentoEventoControle;
 import projeto.centroOperacoes.controle.EventoControle;
@@ -26,6 +31,17 @@ public class EventoViewModelo implements Serializable{
 		navios = new NavioControle().listarTodos();
 		alocacaoEquipamentoEventos = new AlocacaoEquipamentoEventoControle().listarTodos();
 	}
+	
+	 public void onCellEdit(CellEditEvent event) {
+	        Object valorAntigo = event.getOldValue();
+	        Object valorNovo = event.getNewValue();
+	         
+	        if(valorNovo != null && !valorNovo.equals(valorAntigo)) {
+	            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Mudança", "Antes: " + valorAntigo + ", Depois:" + valorNovo);
+	            FacesContext.getCurrentInstance().addMessage(null, msg);
+	        }
+	    }
+
 	
 	private Date data;
 
